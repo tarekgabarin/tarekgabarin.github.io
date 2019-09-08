@@ -22,7 +22,7 @@ about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, my name is Tarek and I'm a web developer, working and living in Toronto. Currently looking for opportunities to build software solutions to real-world problems. 
 
-  I am most skilled in: <mark>React</mark> and <mark>Eating Pizza</mark>
+  I am skilled in: <mark>React</mark> <mark>AngularJS</mark> <mark>JavaScript (ES8)</mark> <mark>Python 3</mark> <mark>HTML</mark> <mark>CSS</mark>
 
 # Projects Section
 # projects_title: Projects
