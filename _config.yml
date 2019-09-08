@@ -6,7 +6,6 @@ repository: tarekgabarin/resume_site
 name: Tarek Gabarin
 title: Front End Developer 
 email: tarekgabarin1992@gmail.com
-website: www.github.com/tarekgabarin/resume_site
 
 # Social links
 github_username:  tarekgabarin
@@ -23,7 +22,7 @@ about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, my name is Tarek and I'm a web developer, working and living in Toronto. Currently looking for opportunities to build software solutions to real-world problems. 
 
-  I am most skilled in: <mark>AWS</mark> and <mark>Eating Pizza</mark>
+  I am most skilled in: <mark>React</mark> and <mark>Eating Pizza</mark>
 
 # Projects Section
 # projects_title: Projects
