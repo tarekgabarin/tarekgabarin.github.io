@@ -1,8 +1,34 @@
 - layout: top-middle
-  name: Super awesome project
-  link: github.com/sproogen
-  github: sproogen/resume-theme
-  quote: >
-    This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+  name: Blackjack
+  link: https://jovial-aryabhata-ba37e0.netlify.com/
+  github: tarekgabarin/crapjack
   description: | # this will include new lines to allow paragraphs
-    I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+    A web app built using React where you can play a game of blackjack against an AI.
+
+- layout: top-middle 
+  name: Typing Test
+  link: https://trusting-ride-94dbdc.netlify.com/
+  github: tarekgabarin/word_challenge
+  description: | 
+    A web app that tests your typing speed. Built with React.
+
+- layout: top-middle
+  name: AI Training Tool
+  description: |
+   An internal tool that monitored construction sites in realtime in order to generate actionable data and insights to clients. Built features for platform using AngularJS and React.js. Translated UX design into front end. Integrated backend Restful API with front end. 
+
+- layout: top-middle
+  name: GoFind.ai
+  link: https://www.youtube.com/watch?v=E4xE5YPS-7E
+  description: |
+    The iOS app I built at GoFind.ai. The app is no longer available on the app store, but you can see a video of it running in a simulator in the link provided. It was built using React Native.
+
+- layout: top-middle
+  name: Jammr
+  link: https://github.com/tarekgabarin/jamrBackend
+  github: tarekgabarin/jamrBackend
+  description: A backend API I built using Node, Express, and MongoDB. It is no longer hosted, but you can take a look at the code in the repo. 
+
+
+
+
