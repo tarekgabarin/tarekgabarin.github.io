@@ -1,4 +1,10 @@
 - layout: top-middle
+  name: FastApp
+  link: https://github.com/tarekgabarin/FastApp
+  github: tarekgabarin/FastApp
+  description: A backend API I built using Node, Express, and Postgresql. It is for a project I am currently working on, which is essientially an app used for tracking someone's eating habits while they do intermittent fasting. 
+
+- layout: top-middle
   name: Blackjack
   link: https://jovial-aryabhata-ba37e0.netlify.com/
   github: tarekgabarin/crapjack
