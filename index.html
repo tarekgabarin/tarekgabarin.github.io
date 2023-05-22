@@ -46,14 +46,22 @@
 			bottom: 0;
 			display: flex;
 			justify-content: center;
+			flex-direction: column;
 			align-items: center;
 			/* don't consume click events - make children visible explicitly */
 			visibility: hidden;
 		}
 
-		#status-progress {
+		#status-title {
+			height: 20px;
 			width: 366px;
+			visibility: visible;
+			color: red
+		}
+
+		#status-progress {
 			height: 7px;
+			width: 366px;
 			background-color: #38363A;
 			border: 1px solid #444246;
 			padding: 1px;
@@ -64,6 +72,12 @@
 
 		@media only screen and (orientation:portrait) {
 			#status-progress {
+				width: 61.8%;
+			}
+		}
+
+		@media only screen and (orientation:portrait) {
+			#status-title {
 				width: 61.8%;
 			}
 		}
@@ -122,7 +136,10 @@
 		Please try updating or use a different browser.
 	</canvas>
 	<div id='status'>
-		<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'><div id ='status-progress-inner'></div></div>
+			<div id="status-title" style='display: none;' oncontextmenu='event.preventDefault();'>
+					Loading game
+			</div>
+			<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'><div id ='status-progress-inner'></div></div>
 		<div id='status-indeterminate' style='display: none;' oncontextmenu='event.preventDefault();'>
 			<div></div>
 			<div></div>
@@ -148,6 +165,7 @@
 			var statusProgressInner = document.getElementById('status-progress-inner');
 			var statusIndeterminate = document.getElementById('status-indeterminate');
 			var statusNotice = document.getElementById('status-notice');
+			var statusTitle = document.getElementById("status-title")
 
 			var initializing = true;
 			var statusMode = 'hidden';
@@ -163,7 +181,7 @@
 
 				if (statusMode === mode || !initializing)
 					return;
-				[statusProgress, statusIndeterminate, statusNotice].forEach(elem => {
+				[statusProgress, statusIndeterminate, statusNotice, statusTitle].forEach(elem => {
 					elem.style.display = 'none';
 				});
 				animationCallbacks = animationCallbacks.filter(function(value) {
@@ -172,6 +190,7 @@
 				switch (mode) {
 					case 'progress':
 						statusProgress.style.display = 'block';
+						statusTitle.style.display = 'block'
 						break;
 					case 'indeterminate':
 						statusIndeterminate.style.display = 'block';
