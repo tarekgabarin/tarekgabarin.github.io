@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' lang='' xml:lang=''>
+
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, user-scalable=no' />
 	<title>Tarek's Resume</title>
 	<style type='text/css'>
-
 		body {
 			touch-action: none;
 			margin: 0;
@@ -34,6 +34,11 @@
 			box-shadow: 0 0 1px 1px #2f2d35;
 		}
 
+		@font-face {
+			font-family: "loading-font";
+			src: url('upheavtt.ttf');
+		}
+
 
 		/* Status display
 		 * ============== */
@@ -46,19 +51,26 @@
 			bottom: 0;
 			display: flex;
 			justify-content: center;
+			flex-direction: column;
 			align-items: center;
 			/* don't consume click events - make children visible explicitly */
 			visibility: hidden;
 		}
 
-		#status-progress {
+		#status-title {
+			height: 20px;
 			width: 366px;
+			font-size: 32px;
+			line-height: 4px;
+			visibility: visible;
+			font-family: "loading-font";
+			color: #ffffff
+		}
+
+		#status-progress {
 			height: 7px;
-			background-color: #38363A;
-			border: 1px solid #444246;
-			padding: 1px;
-			box-shadow: 0 0 2px 1px #1B1C22;
-			border-radius: 2px;
+			width: 366px;
+			background-color: #a4cca4;
 			visibility: visible;
 		}
 
@@ -68,15 +80,18 @@
 			}
 		}
 
+		@media only screen and (orientation:portrait) {
+			#status-title {
+				width: 61.8%;
+			}
+		}
+
 		#status-progress-inner {
 			height: 100%;
 			width: 0;
 			box-sizing: border-box;
 			transition: width 0.5s linear;
-			background-color: #202020;
-			border: 1px solid #222223;
-			box-shadow: 0 0 1px 1px #27282E;
-			border-radius: 3px;
+			background-color: #3e7454;
 		}
 
 		#status-indeterminate {
@@ -85,7 +100,7 @@
 			position: relative;
 		}
 
-		#status-indeterminate > div {
+		#status-indeterminate>div {
 			width: 4.5px;
 			height: 0;
 			border-style: solid;
@@ -95,14 +110,37 @@
 			position: absolute;
 		}
 
-		#status-indeterminate > div:nth-child(1) { transform: rotate( 22.5deg); }
-		#status-indeterminate > div:nth-child(2) { transform: rotate( 67.5deg); }
-		#status-indeterminate > div:nth-child(3) { transform: rotate(112.5deg); }
-		#status-indeterminate > div:nth-child(4) { transform: rotate(157.5deg); }
-		#status-indeterminate > div:nth-child(5) { transform: rotate(202.5deg); }
-		#status-indeterminate > div:nth-child(6) { transform: rotate(247.5deg); }
-		#status-indeterminate > div:nth-child(7) { transform: rotate(292.5deg); }
-		#status-indeterminate > div:nth-child(8) { transform: rotate(337.5deg); }
+		#status-indeterminate>div:nth-child(1) {
+			transform: rotate(22.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(2) {
+			transform: rotate(67.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(3) {
+			transform: rotate(112.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(4) {
+			transform: rotate(157.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(5) {
+			transform: rotate(202.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(6) {
+			transform: rotate(247.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(7) {
+			transform: rotate(292.5deg);
+		}
+
+		#status-indeterminate>div:nth-child(8) {
+			transform: rotate(337.5deg);
+		}
 
 		#status-notice {
 			margin: 0 100px;
@@ -112,17 +150,23 @@
 			visibility: visible;
 		}
 	</style>
-<link id='-gd-engine-icon' rel='icon' type='image/png' href='tareks-resume.icon.png' />
-<link rel='apple-touch-icon' href='tareks-resume.apple-touch-icon.png'/>
+	<link id='-gd-engine-icon' rel='icon' type='image/png' href='tareks-resume.icon.png' />
+	<link rel='apple-touch-icon' href='tareks-resume.apple-touch-icon.png' />
 
 </head>
+
 <body>
 	<canvas id='canvas'>
 		HTML5 canvas appears to be unsupported in the current browser.<br />
 		Please try updating or use a different browser.
 	</canvas>
 	<div id='status'>
-		<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'><div id ='status-progress-inner'></div></div>
+		<div id="status-title" style='display: none;' oncontextmenu='event.preventDefault();'>
+			Loading game
+		</div>
+		<div id='status-progress' style='display: none;' oncontextmenu='event.preventDefault();'>
+			<div id='status-progress-inner'></div>
+		</div>
 		<div id='status-indeterminate' style='display: none;' oncontextmenu='event.preventDefault();'>
 			<div></div>
 			<div></div>
@@ -139,15 +183,16 @@
 	<script type='text/javascript' src='tareks-resume.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"tareks-resume","experimentalVK":false,"fileSizes":{"tareks-resume.pck":67268704,"tareks-resume.wasm":17867504},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = { "args": [], "canvasResizePolicy": 2, "executable": "tareks-resume", "experimentalVK": false, "fileSizes": { "tareks-resume.pck": 67268704, "tareks-resume.wasm": 17867504 }, "focusCanvas": true, "gdnativeLibs": [] };
 		var engine = new Engine(GODOT_CONFIG);
 
-		(function() {
+		(function () {
 			const INDETERMINATE_STATUS_STEP_MS = 100;
 			var statusProgress = document.getElementById('status-progress');
 			var statusProgressInner = document.getElementById('status-progress-inner');
 			var statusIndeterminate = document.getElementById('status-indeterminate');
 			var statusNotice = document.getElementById('status-notice');
+			var statusTitle = document.getElementById("status-title")
 
 			var initializing = true;
 			var statusMode = 'hidden';
@@ -163,15 +208,16 @@
 
 				if (statusMode === mode || !initializing)
 					return;
-				[statusProgress, statusIndeterminate, statusNotice].forEach(elem => {
+				[statusProgress, statusIndeterminate, statusNotice, statusTitle].forEach(elem => {
 					elem.style.display = 'none';
 				});
-				animationCallbacks = animationCallbacks.filter(function(value) {
+				animationCallbacks = animationCallbacks.filter(function (value) {
 					return (value != animateStatusIndeterminate);
 				});
 				switch (mode) {
 					case 'progress':
 						statusProgress.style.display = 'block';
+						statusTitle.style.display = 'block'
 						break;
 					case 'indeterminate':
 						statusIndeterminate.style.display = 'block';
@@ -224,7 +270,7 @@
 				engine.startGame({
 					'onProgress': function (current, total) {
 						if (total > 0) {
-							statusProgressInner.style.width = current/total * 100 + '%';
+							statusProgressInner.style.width = current / total * 100 + '%';
 							setStatusMode('progress');
 							if (current === total) {
 								// wait for progress bar animation
@@ -244,5 +290,5 @@
 		})();
 	//]]></script>
 </body>
-</html>
 
+</html>
